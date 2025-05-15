@@ -19,7 +19,7 @@ Acces the services at
   ./load.sh
  ```
 
- 3. Generate IPS by Posting the following to the end point ```http://localhost:8090/fhir/Patient/$summary```
+ 3. Generate IPS by Posting the following Parameters ie Patient ID to this FHIR end point ```http://localhost:8090/fhir/Patient/$summary```
    
     ```
         {
@@ -32,6 +32,12 @@ Acces the services at
             }]
         } 
     ```
+
+    See IPS composition
+
+    ![IPS](./image.png)
+
+    see more about [IPS](https://build.fhir.org/ig/HL7/fhir-ips/)
 
 
 

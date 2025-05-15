@@ -1,0 +1,41 @@
+{
+    "resourceType": "Patient",
+    "id": "ips-demo-patient",  
+    "identifier": [
+      {
+        "use": "official",
+        "system": "http://openmrs.org",
+        "value": "10001MJ"  
+      }
+    ],
+    "name": [
+      {
+        "use": "official",
+        "family": "Thompson",
+        "given": [
+          "Karen"
+        ]
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2013-01-13",
+    "address": [
+      {
+        "use": "home",
+        "line": [
+          "123 Main St"
+        ],
+        "city": "Metropolis",
+        "state": "IL",
+        "postalCode": "62960",
+        "country": "USA"
+      }
+    ],
+    "telecom": [
+      {
+        "system": "phone",
+        "value": "+1 555-123-4567",
+        "use": "home"
+      }
+    ]
+  }

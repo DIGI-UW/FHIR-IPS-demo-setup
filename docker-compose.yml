@@ -1,0 +1,45 @@
+version: '3.6'
+services:
+    shr-hapi-fhir:
+        container_name: shr-hapi-fhir
+        image: hapiproject/hapi:v8.0.0
+        depends_on:
+            - shr-db
+        ports:
+            - "8090:8080"
+        restart: always
+        environment:
+            - hapi.fhir.auto_create_placeholder_reference_targets=true
+            - hapi.fhir.allow_placeholder_references=true
+            - hapi.fhir.allow_external_references=true
+            - hapi.fhir.client_id_strategy=ANY
+            - hapi.fhir.mdm_enabled=false
+            - hapi.fhir.ips_enabled=true
+            - hapi.fhir.implementationguides.ips_1_0_0.url=https://hl7.org/fhir/uv/ips/package.tgz
+            - hapi.fhir.implementationguides.ips_1_0_0.name=hl7.fhir.uv.ips
+            - hapi.fhir.implementationguides.ips_1_0_0.version=1.1.0
+            - spring.datasource.url=jdbc:postgresql://shr-db:5432/hapi
+            - spring.datasource.username=admin
+            - spring.datasource.password=admin
+            - spring.datasource.driverClassName=org.postgresql.Driver
+            - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+        volumes:
+            - hapi-data:/data/hapi
+
+    shr-db:
+        image: postgres:14.4
+        container_name: hapi-fhir-db
+        restart: always
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_DB: 'hapi'
+            POSTGRES_USER: 'admin'
+            POSTGRES_PASSWORD: 'admin'
+        volumes:
+            - hapi-fhir-db:/var/lib/postgresql/data
+
+
+volumes:
+  hapi-data:
+  hapi-fhir-db:

@@ -1,0 +1,54 @@
+{
+    "resourceType": "MedicationRequest",
+    "id" : "ips-demo-medicationrequest",
+    "status": "active",
+    "intent": "order",
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "1049502",
+          "display": "Lisinopril 10 MG Oral Tablet"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/ips-demo-patient"
+    },
+    "authoredOn": "2024-09-01",
+    "requester": {
+      "reference": "Practitioner/1"
+    },
+    "dosageInstruction": [
+      {
+        "text": "Take one tablet by mouth daily",
+        "timing": {
+          "repeat": {
+            "frequency": 1,
+            "period": 1,
+            "periodUnit": "d"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
+              "code": "PO",
+              "display": "Oral route"
+            }
+          ]
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 10,
+              "unit": "mg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  

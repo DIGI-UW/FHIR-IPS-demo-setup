@@ -1,0 +1,52 @@
+{
+    "resourceType": "CarePlan",
+    "id":"ips-demo-careplan",
+    "status": "active",
+    "intent": "plan",
+    "title": "Diabetes Treatment Plan",
+    "description": "A care plan for managing type 2 diabetes.",
+    "subject": {
+      "reference": "Patient/ips-demo-patient"
+    },
+    "period": {
+      "start": "2024-09-01T00:00:00Z",
+      "end": "2024-12-31T00:00:00Z"
+    },
+    "activity": [
+      {
+        "detail": {
+          "kind": "MedicationRequest",
+          "description": "Take metformin 500 mg twice daily.",
+          "status": "in-progress",
+          "dailyAmount": {
+            "value": 2,
+            "unit": "tablets"
+          },
+          "productCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "860975",
+                "display": "Metformin 500 MG Oral Tablet"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "detail": {
+          "kind": "Appointment",
+          "description": "Regular check-up with endocrinologist.",
+          "status": "scheduled",
+          "scheduledTiming": {
+            "repeat": {
+              "frequency": 1,
+              "period": 3,
+              "periodUnit": "mo"
+            }
+          }
+        }
+      }
+    ]
+  }
+  

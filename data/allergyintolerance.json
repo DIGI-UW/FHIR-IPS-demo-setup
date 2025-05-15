@@ -1,0 +1,66 @@
+{
+    "resourceType": "AllergyIntolerance",
+    "id":"ips-demo-allergyintolerance",
+    "clinicalStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+          "code": "active",
+          "display": "Active"
+        }
+      ]
+    },
+    "verificationStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+          "code": "confirmed",
+          "display": "Confirmed"
+        }
+      ]
+    },
+    "type": "allergy",
+    "category": [
+      "medication"
+    ],
+    "criticality": "high",
+    "code": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "7980",
+          "display": "Penicillin allergy"
+        }
+      ]
+    },
+    "patient": {
+      "reference": "Patient/ips-demo-patient"
+    },
+    "onsetDateTime": "2020-01-01T00:00:00Z",
+    "reaction": [
+      {
+        "substance": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "59109004",
+              "display": "Penicillin"
+            }
+          ]
+        },
+        "manifestation": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "271807003",
+                "display": "Rash"
+              }
+            ]
+          }
+        ],
+        "severity": "severe"
+      }
+    ]
+  }
+  
